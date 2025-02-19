@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ADB Helper</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <!-- Logcat Tab -->
+      <widget class="QWidget" name="logcatTab">
+       <attribute name="title">
+        <string>Logcat</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutLogcat">
+        <item>
+         <widget class="QPushButton" name="runLogcatButton">
+          <property name="text">
+           <string>Run Logcat</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stopLogcatButton">
+          <property name="text">
+           <string>Stop Logcat</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="logcatArgsLineEdit">
+          <property name="placeholderText">
+           <string>Additional arguments (e.g. -c or | grep ...)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="logcatOutput">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Screencap Tab -->
+      <widget class="QWidget" name="screencapTab">
+       <attribute name="title">
+        <string>Screencap</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutScreencap">
+        <item>
+         <widget class="QPushButton" name="runScreencapButton">
+          <property name="text">
+           <string>Run Screencap</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="screencapImageLabel">
+          <property name="text">
+           <string>No screenshot yet</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>200</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Recording Tab -->
+      <widget class="QWidget" name="recordingTab">
+       <attribute name="title">
+        <string>Recording</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutRecording">
+        <item>
+         <widget class="QPushButton" name="startRecordingButton">
+          <property name="text">
+           <string>Start Recording</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stopRecordingButton">
+          <property name="text">
+           <string>Stop Recording</string>
+          </property>
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="recordingStatusLabel">
+          <property name="text">
+           <string>No recording yet</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QVideoWidget" name="recordingVideoWidget">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>300</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Sideload Tab -->
+      <widget class="QWidget" name="sideloadTab">
+       <attribute name="title">
+        <string>Sideload</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutSideload">
+        <item>
+         <widget class="QLineEdit" name="apkPathLineEdit">
+          <property name="placeholderText">
+           <string>Enter APK path</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="runSideloadButton">
+          <property name="text">
+           <string>Install APK</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="sideloadOutput">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Keyboard Tab -->
+      <widget class="QWidget" name="keyboardTab">
+       <attribute name="title">
+        <string>Keyboard</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutKeyboard">
+        <item>
+         <widget class="QLabel" name="keyboardInstructionLabel">
+          <property name="text">
+           <string>Click in the field below and type. Each key press will be sent to the device via adb shell input keyevent.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="keyboardLineEdit">
+          <property name="placeholderText">
+           <string>Focus here and type...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Info Tab -->
+      <widget class="QWidget" name="infoTab">
+       <attribute name="title">
+        <string>Info</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutInfo">
+        <item>
+         <widget class="QPushButton" name="getInfoButton">
+          <property name="text">
+           <string>Get Device Info</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="infoOutput">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- Shell Tab -->
+      <widget class="QWidget" name="shellTab">
+       <attribute name="title">
+        <string>Shell</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutShell">
+        <item>
+         <widget class="QPlainTextEdit" name="shellOutput">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="shellCommandLineEdit">
+          <property name="placeholderText">
+           <string>Enter adb shell command here...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
